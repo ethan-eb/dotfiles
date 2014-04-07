@@ -10,10 +10,8 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'wincent/Command-T'
-" cd ~/.vim/bundle/Command-T/ruby/command-t/; ruby extconf.rb; make
+Bundle 'kien/ctrlp.vim'
 " Bundle 'mitechie/pyflakes-pathogen'
-" Bundle 'nvie/vim-flake8' "???
 Bundle 'rodjek/vim-puppet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'maxbrunsfeld/vim-yankstack'
@@ -44,12 +42,16 @@ filetype plugin indent on     " required!
 :set rnu
 :let mapleader = " "
 :nmap <Leader>p <Plug>yankstack_substitute_older_paste
+:nmap <Leader>t :CtrlP<CR>
 :nmap <leader>vh :leftabove vert sbn<CR>
 :nmap <leader>vl :rightbelow vert sbn<CR>
 :nmap <silent><Leader>/ :nohls<CR>
 :nmap n nzz
 " :let g:pep8_map='<leader>8'
 " let g:ConqueTerm_SendVisKey = '<leader>c'
+if isdirectory(".git")
+   let g:ctrlp_user_command = 'cd %s && git ls-files . -co --exclude-standard'
+endif
 
 :hi clear SpellBad
 :hi SpellBad cterm=underline,bold ctermfg=red
