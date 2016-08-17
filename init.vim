@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 " original repos on github
 Plug 'kien/ctrlp.vim'
 Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Lokaltog/vim-distinguished'
@@ -10,6 +11,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'L2G/vim-syntax-terraform'
 Plug 'hashivim/vim-terraform'
+Plug 'mustache/vim-mustache-handlebars'
 "
 " Bundle 'matchit.zip'
 "
@@ -19,12 +21,14 @@ call plug#end()
 
 :syntax on
 :let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+:let g:syntastic_javascript_checkers = ['eslint']
 :colorscheme gruvbox
 :set background=dark
 
 :set rnu
 :let mapleader = " "
 ":nmap <Leader>y :.!pbcopy&&pbpaste<CR>
+:nmap <Leader>f :! echo % \| pbcopy<CR>
 :nmap <Leader>y :! cat ~/.config/nvim/scratch \| pbcopy<CR>
 :nmap <Leader>s :split ~/.config/nvim/scratch<CR>
 :nmap <Leader>p <Plug>yankstack_substitute_older_paste
@@ -50,4 +54,4 @@ endif
 " au BufRead,BufNewFile *.py setlocal smarttab
 autocmd QuickFixCmdPost *grep* cwindow
 :set colorcolumn=80
-inoremap <Esc> <Nop>
+" inoremap <Esc> <Nop>

@@ -12,6 +12,7 @@ if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
 fi
 GIT_PS1_SHOWDIRTYSTATE=true
 
+export _Z_CMD=g
 . ~/bin/z.sh
 
 PS1='\[\033[32m\]OSX\[\033[00m\]:\w$(__git_ps1)\$ '
